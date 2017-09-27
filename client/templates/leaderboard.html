@@ -1,10 +1,12 @@
-<div id="leaderboard" ng-controller="LeadController">
+<div id="leaderboard" ng-controller="AppController">
   <table>
     <tr>
-      <th>Standing</th>
       <th>Username</th>
       <th>Score</th>
     </tr>
     <tr>
+      <th>{{$ctrl.leaderData.username}}</th>
+      <th>{{$ctrl.leaderData.score}}</th>
+    </tr>
   </table>
 </div>

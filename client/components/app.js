@@ -8,6 +8,20 @@ angular.module('quiz-base-alpha', [])
     controller: 'AppController'
   })
   .controller('AppController', function($http, dbquery) {
+    this.data = [];
+    this.test = function() {
+      console.log(this.data[0]);
+    };
+    this.leaderData = {
+      username: 'asd',
+      score: 0
+    };
+
+    this.getData = function() {
+      $http.get('http://127.0.0.1:1337/userData').then(({ data }) => {
+        this.data.push(data);
+      });
+    };
 
     var inputData = {
       username: '',
@@ -30,12 +44,7 @@ angular.module('quiz-base-alpha', [])
     };
 
     this.sendData = function(userData) {
-      var mockUserData = {
-        username: 'test',
-        score: 3
-      };
-      console.log(userData, 'This is from sendDATA');
-      $http.post('http://127.0.0.1:1337', mockUserData).then(function({ data }) {
+      $http.post('http://127.0.0.1:1337', userData).then(function({ data }) {
         console.log('Success!', data);
       })
         .catch(function(err) {

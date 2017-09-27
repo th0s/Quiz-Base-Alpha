@@ -3,7 +3,7 @@ var path = require('path');
 var app = express();
 var db = require('./client/db/database.js');
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('test', 'test', null, { dialect: 'sqlite', storage: './db.test.sqlite' });
+var db = new Sequelize('data', 'root', null, { host: 'localhost', dialect: 'mysql'});
 var bodyParser = require('body-parser');
 
 
@@ -19,28 +19,34 @@ app.listen(1337, function() {
   console.log('QBA listening on port 1337...');
 });
 
-var Username = sequelize.define('Username', {
+
+var Username = db.define('leadinfo', {
   username: Sequelize.STRING,
-  username: Sequelize.INTEGER
-}, {
-  tablename: 'leadinfo'
+  score: Sequelize.INTEGER
 });
 
 app.get('/', function(req, res) {
-  sequelize.query('SELECT * FROM leadinfo', {type: sequelize.QueryTypes.SELECT})
+  db.query('SELECT * FROM leadinfos', {type: db.QueryTypes.SELECT})
     .then(users => {
       console.log(users);
     });
 });
 
-app.post('/', function(req, res) {
-  sequelize.query('SELECT * FROM leadinfo', {type: sequelize.QueryTypes.SELECT})
+app.get('/userData', function(req, res) {
+  db.query('SELECT * FROM leadinfos', {type: db.QueryTypes.SELECT})
     .then(users => {
-      console.log(users, ' This worked!');
+      res.send(users);
+      console.log(users, 'this is all the users');
     });
-  // sequelize.query("insert into leadinfo(username, score) values(req.body.username, req.body.score);", {type: sequelize.QueryTypes.SELECT})
-  // .then(users => {
-  //   console.log(users)
-  // })
-  res.status(201).send(req.body);
+});
+
+app.post('/', function(req, res) {
+  Username.create({
+    username: req.body.username,
+    score: req.body.score
+  })
+    .then(users => {
+      res.status(201).send(req.body);
+    });
+
 });

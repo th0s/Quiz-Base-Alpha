@@ -2,11 +2,24 @@
   <h1>Quiz Base Alpha</h1>
 
 </header>
-<lboard></lboard>
-<div class="main" ng-controller="AppController">
+<div id="leaderboard" ng-controller="AppController">
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Score</th>
+    </tr>
+    <tr>
+      <th ng-model="$ctrl.data[0]">{{$ctrl.data[0][0].username}}</th>
+      <th ng-model="$ctrl.leaderData">{{$ctrl.data[0][0].score}}</th>
+    </tr>
+  </table>
+</div>
+<div class="main">
   <form ng-submit="$ctrl.submit()">
     <div class="input">
-      Username:<input type="text" name="text" maxlength="15" ng-model="$ctrl.username">
+      Username:<input type="text" name="text" maxlength="15" ng-model="$ctrl.username"><!--
+    --><input type="submit" class="btn" id="submit" value="submit" ng-click="$ctrl.getData()">
+    <input type="submit" class="btn" id="test" value="test" ng-click="$ctrl.test()">
     </div>
     <div class="question">
       <p>What is Princess Leia's last name?</p>
@@ -94,10 +107,10 @@
       <div class="answers">
         <input type="radio" name="10q">Qui-Gon Jinn<br>
         <input type="radio" name="10q">Yoda<br>
-        <input type="radio" name="10q" ng-click="$ctrl.myFunc()">{{$ctrl.name}}<br>
+        <input type="radio" name="10q" ng-click="$ctrl.myFunc()">Obi-Wan Kenobi<br>
         <input type="radio" name="10q">Quinlan Vos<br>
       </div>
     </div><br><br>
-    <input type="submit" class="btn" id="submit" value="submit">
+    <input type="submit" class="btn" id="submit" value="submit" href="#">
   </form>
 </div>
