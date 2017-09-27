@@ -1,100 +1,103 @@
 <header>
   <h1>Quiz Base Alpha</h1>
-  <div class="input">
-    <label>Username:</label><input type="username" name="username" maxlength="15">
-  </div>
+
 </header>
 <lboard></lboard>
 <div class="main" ng-controller="AppController">
-  <div class="question">
-    <p>What is Princess Leia's last name?</p>
-    <div class="answers">
-      <input type="radio" name="1q"><lable>Organa</lable><br>
-      <input type="radio" name="2q"><lable>Solo</lable><br>
-      <input type="radio" name="3q"><lable>Skywalker</lable><br>
-        <input type="radio" name="4q"><lable>Something else...</lable><br>
+  <form ng-submit="$ctrl.submit()">
+    <div class="input">
+      Username:<input type="text" name="text" maxlength="15" ng-model="$ctrl.username">
     </div>
-  </div><br><br>
-  <div class="question">
-    <p>What was Luke planning to pick up at Tosche Station?</p>
-    <div class="answers">
-      <input type="radio" name="1q"><lable>Energy Converters</lable><br>
-      <input type="radio" name="2q"><lable>Battery Packs</lable><br>
-      <input type="radio" name="3q"><lable>Power Converters</lable><br>
-      <input type="radio" name="4q"><lable>Power Packs</lable><br>
-    </div>
-  </div><br><br>
-  <div class="question">
-    <p>Where did Luke Skywalker race his skyhopper?</p>
-    <div class="answers">
-      <input type="radio" name="1q"><lable>Waldo Flats</lable><br>
-      <input type="radio" name="2q"><lable>The Dune Sea</lable><br>
-      <input type="radio" name="3q"><lable>Beggar's Canyon</lable><br>
-      <input type="radio" name="4q"><lable>The Desert Plain</lable><br>
-    </div>
-  </div><br><br>
-  <div class="question">
-    <p>Who said: "One thing's for sure-we're all gonna be a lot thinner"?</p>
-    <div class="answers">
-      <input type="radio" name="1q"><lable>Princess Leia</lable><br>
-      <input type="radio" name="2q"><lable>C-3PO</lable><br>
-      <input type="radio" name="3q"><lable>Han Solo</lable><br>
-      <input type="radio" name="4q"><lable>Luke Skywalker</lable><br>
-    </div>
-  </div><br><br>
-  <div class="question">
-    <p>According to Obi-Wan Kenobi, for how long had the Jedi been the guardians of peace and justice in the galaxy?</p>
-    <div class="answers">
-      <input type="radio" name="1q"><lable>More than a hundred generations</lable><br>
-      <input type="radio" name="2q"><lable>More than a thousand generations</lable><br>
-      <input type="radio" name="3q"><lable>More than two millennia</lable><br>
-      <input type="radio" name="4q"><lable>More than two thousand years</lable><br>
-    </div>
-  </div><br><br>
-  <div class="question">
-    <p>Who said to Princess Leia. "I care"?</p>
-    <div class="answers">
-      <input type="radio" name="1q"><lable>Obi-Wan Kenobi</lable><br>
-      <input type="radio" name="2q"><lable>Luke Skywalker</lable><br>
-      <input type="radio" name="3q"><lable>Han Solo</lable><br>
-      <input type="radio" name="4q"><lable>C-3PO</lable><br>
-    </div>
-  </div><br><br>
-  <div class="question">
-    <p>What was Han Solo's homeworld?</p>
-    <div class="answers">
-      <input type="radio" name="1q"><lable>Dantooine</lable><br>
-      <input type="radio" name="2q"><lable>Corellia</lable><br>
-      <input type="radio" name="3q"><lable>Coruscant</lable><br>
-      <input type="radio" name="4q"><lable>Alderaan</lable><br>
-    </div>
-  </div><br><br>
-  <div class="question">
-    <p>Who said, "I recognized your foul stench when I was brought on board"?</p>
-    <div class="answers">
-      <input type="radio" name="1q"><lable>Darth Vader</lable><br>
-      <input type="radio" name="2q"><lable>Grand Moff Tarkin</lable><br>
-      <input type="radio" name="3q"><lable>Princess Leia</lable><br>
-      <input type="radio" name="4q"><lable>Obi-Wan Kenobi</lable><br>
-    </div>
-  </div><br><br>
-  <div class="question">
-    <p>What was Jabba the Hutt's homeworld?</p>
-    <div class="answers">
-      <input type="radio" name="1q"><lable>Da Soocha V</lable><br>
-      <input type="radio" name="2q"><lable>Tatooine</lable><br>
-      <input type="radio" name="3q"><lable>Nal Hutta</lable><br>
-      <input type="radio" name="4q"><lable>Nar Shaddaa</lable><br>
-    </div>
-  </div><br><br>
-  <div class="question">
-    <p>Of whom was Grand Moff Tarkin speaking when he said, "Surely he must be dead by now"?</p>
-    <div class="answers">
-      <input type="radio" name="1q"><lable>Qui-Gon Jinn</lable><br>
-      <input type="radio" name="2q"><lable>Yoda</lable><br>
-      <input type="radio" name="3q"><lable>Obi-Wan Kenobi</lable><br>
-      <input type="radio" name="4q"><lable>Quinlan Vos</lable><br>
-    </div>
-  </div><br><br>
-  <button class="btn" type="button" ng-click="$ctrl.score()">Submit</button>
+    <div class="question">
+      <p>What is Princess Leia's last name?</p>
+      <div class="answers">
+        <input type="radio" name="1q" ng-click="$ctrl.myFunc()">Organa<br>
+        <input type="radio" name="1q" >Solo<br>
+        <input type="radio" name="1q" >Skywalker<br>
+        <input type="radio" name="1q" >Something else...<br>
+      </div>
+    </div><br><br>
+    <div class="question">
+      <p>What was Luke planning to pick up at Tosche Station?</p>
+      <div class="answers">
+        <input type="radio" name="2q">Energy Converters<br>
+        <input type="radio" name="2q">Battery Packs<br>
+        <input type="radio" name="2q" ng-click="$ctrl.myFunc()">Power Converters<br>
+        <input type="radio" name="2q">Power Packs<br>
+      </div>
+    </div><br><br>
+    <div class="question">
+      <p>Where did Luke Skywalker race his skyhopper?</p>
+      <div class="answers">
+        <input type="radio" name="3q">Waldo Flats<br>
+        <input type="radio" name="3q">The Dune Sea<br>
+        <input type="radio" name="3q" ng-click="$ctrl.myFunc()">Beggar's Canyon<br>
+        <input type="radio" name="3q">The Desert Plain<br>
+      </div>
+    </div><br><br>
+    <div class="question">
+      <p>Who said: "One thing's for sure-we're all gonna be a lot thinner"?</p>
+      <div class="answers">
+        <input type="radio" name="4q">Princess Leia<br>
+        <input type="radio" name="4q">C-3PO<br>
+        <input type="radio" name="4q" ng-click="$ctrl.myFunc()">Han Solo<br>
+        <input type="radio" name="4q">Luke Skywalker<br>
+      </div>
+    </div><br><br>
+    <div class="question">
+      <p>According to Obi-Wan Kenobi, for how long had the Jedi been the guardians of peace and justice in the galaxy?</p>
+      <div class="answers">
+        <input type="radio" name="5q">More than a hundred generations<br>
+        <input type="radio" name="5q" ng-click="$ctrl.myFunc()">More than a thousand generations<br>
+        <input type="radio" name="5q">More than two millennia<br>
+        <input type="radio" name="5q">More than two thousand years<br>
+      </div>
+    </div><br><br>
+    <div class="question">
+      <p>Who said to Princess Leia. "I care"?</p>
+      <div class="answers">
+        <input type="radio" name="6q">Obi-Wan Kenobi<br>
+        <input type="radio" name="6q" ng-click="$ctrl.myFunc()">Luke Skywalker<br>
+        <input type="radio" name="6q">Han Solo<br>
+        <input type="radio" name="6q">C-3PO<br>
+      </div>
+    </div><br><br>
+    <div class="question">
+      <p>What was Han Solo's homeworld?</p>
+      <div class="answers">
+        <input type="radio" name="7q">Dantooine<br>
+        <input type="radio" name="7q" ng-click="$ctrl.myFunc()">Corellia<br>
+        <input type="radio" name="7q">Coruscant<br>
+        <input type="radio" name="7q">Alderaan<br>
+      </div>
+    </div><br><br>
+    <div class="question">
+      <p>Who said, "I recognized your foul stench when I was brought on board"?</p>
+      <div class="answers">
+        <input type="radio" name="8q">Darth Vader<br>
+        <input type="radio" name="8q">Grand Moff Tarkin<br>
+        <input type="radio" name="8q" ng-click="$ctrl.myFunc()">Princess Leia<br>
+        <input type="radio" name="8q">Obi-Wan Kenobi<br>
+      </div>
+    </div><br><br>
+    <div class="question">
+      <p>What was Jabba the Hutt's homeworld?</p>
+      <div class="answers">
+        <input type="radio" name="9q">Da Soocha V<br>
+        <input type="radio" name="9q">Tatooine<br>
+        <input type="radio" name="9q" ng-click="$ctrl.myFunc()">Nal Hutta<br>
+        <input type="radio" name="9q">Nar Shaddaa<br>
+      </div>
+    </div><br><br>
+    <div class="question">
+      <p>Of whom was Grand Moff Tarkin speaking when he said, "Surely he must be dead by now"?</p>
+      <div class="answers">
+        <input type="radio" name="10q">Qui-Gon Jinn<br>
+        <input type="radio" name="10q">Yoda<br>
+        <input type="radio" name="10q" ng-click="$ctrl.myFunc()">{{$ctrl.name}}<br>
+        <input type="radio" name="10q">Quinlan Vos<br>
+      </div>
+    </div><br><br>
+    <input type="submit" class="btn" id="submit" value="submit">
+  </form>
 </div>
